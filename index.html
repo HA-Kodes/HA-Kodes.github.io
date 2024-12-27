@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter Button</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    #counterButton {
+      font-size: 20px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button id="counterButton">Thumbs Up! Count: 0</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let count = 0; // Initial counter value
+      const button = document.getElementById('counterButton'); // Get button element
+
+      // Add click event listener to button
+      button.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent any default action
+        count += 1; // Increment counter
+        button.textContent = `Thumbs Up! Count: ${count}`; // Update button text
+      });
+    });
+  </script>
+</body>
+</html>
