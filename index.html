@@ -32,6 +32,7 @@
     const counterDisplay = document.getElementById('counter');
     // Update counter display
     counterDisplay.innerText = count;
+    button.textContent = `Thumbs Up! Count: ${count}`; // Ensure button text is updated on page load
     // Add click event listener to button
     button.addEventListener('click', (event) => {
       event.preventDefault(); // Prevent any default action
@@ -41,16 +42,17 @@
       localStorage.setItem('clickCount', count); // Save count to local storage
       // Array of fun messages
       const messages = [
-        'Thank You!',
+        'Thanks for the 👍!',
         'Happy Coding!',
         'Come Again!',
-        'Let\'s Connect!',
-        'Awesome!',
+        'Let's Connect!',
+        'Way Cool!',
         'Keep It Up!',
         'You Rock!',
         'Great Job!',
         'Way to Go!',
-        'Fantastic!'
+        'Fantastic!',
+        'Yay - You Did It!'
       ];
       // Select a random message
       const randomMessage = messages[Math.floor(Math.random() * messages.length)];
