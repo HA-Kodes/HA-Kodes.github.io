@@ -24,9 +24,28 @@
   <button id="counterButton">Thumbs Up! Count: 0</button>
   <p>Thumbs Up Count: <span id="counter">0</span></p>
 
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+  <!-- Include Firebase Realtime Database -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
   <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      databaseURL: "https://clik111.firebaseio.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var database = firebase.database();
+
     // Load count from local storage or set to 0
     let count = localStorage.getItem('clickCount') || 0;
+    console.log('Initial count:', count); // Debug message
     // Get elements
     const button = document.getElementById('counterButton');
     const counterDisplay = document.getElementById('counter');
@@ -40,8 +59,9 @@
       button.textContent = `Thumbs Up! Count: ${count}`; // Update button text
       counterDisplay.innerText = count; // Update counter display
       localStorage.setItem('clickCount', count); // Save count to local storage
+      console.log('Updated count:', count); // Debug message
       // Array of fun messages
-      const messages = [
+       const messages = [
         'Thanks for the 👍!',
         'Happy Coding!',
         'Come Again!',
